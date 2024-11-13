@@ -13,26 +13,29 @@
 #include <string.h>
 #include <stdlib.h>
 
-void ft_putchar_fd(char c, int fd) {
+void	ft_putchar_fd(char c, int fd)
+{
 	write(fd, &c, 1);
 }
 
-void ft_putstr_fd(char *s, int fd) {
-	size_t len;
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	len;
 
 	if (!s)
-		return;
+		return ;
 	len = strlen(s);
 	write(fd, s, len);
 }
 
-void ft_putaddr_fd(void *ptr, int fd) 
+void	ft_putaddr_fd(void *ptr, int fd)
 {
 	unsigned long address = (unsigned long)ptr; 
 	char hex_digits[] = "0123456789abcdef";
 	char buffer[20];
 	int i = 0;
 
+	address = (unsigned long)ptr; 
 	ft_putstr_fd("0x", fd);
 
 	while (address > 0) {
@@ -40,10 +43,12 @@ void ft_putaddr_fd(void *ptr, int fd)
 		address /= 16;
 	}
 
-	while (i-- > 0) {
+	while (i-- > 0)
+	{
 		ft_putchar_fd(buffer[i], fd);
 	}
 }
+
 
 int main(void) {
 	int n = 42;  
