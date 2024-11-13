@@ -46,6 +46,48 @@ int main()
 }
 
 
+
+/*
+puntero
+
+int    ft_printf(char const *word ,...)
+{
+    va_list        arg;
+    va_start    (arg,word);
+    int            i;
+    char        *posi = va_arg(arg, char*); 
+    int            len;
+
+    len = 0;
+    i    =    0;
+    while (word[i])
+    {
+        if (word[i] == '%' && word[i + 1] == 'p' )
+        {
+          ft_putaddr_fd(posi, 1);
+          i++;
+          len ++;
+        }
+        else
+        {
+        write (1, &word[i], 1);
+        len++;
+        }
+        i++;
+    }
+    va_end (arg);
+    return len;
+}
+
+
+
+int    main(void)
+{
+    char c[] = "hola";
+
+    ft_printf("pato %p",c);
+}
+*/
 /*
 #include <stdarg.h>
 #include <unistd.h>
