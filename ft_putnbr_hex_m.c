@@ -17,43 +17,24 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-void ft_putchar_fd(char c, int fd) {
-    write(fd, &c, 1);
-}
-
-void ft_putstr_fd(char *s, int fd) {
-    size_t len;
-
-    if (!s)
-        return;
-    len = strlen(s);
-    write(fd, s, len);
-}
-
-int ft_puthex_fd(int ptr, int fd) 
+int	ft_putnbr_hex(unsigned long n)
 {
-    unsigned long address = (unsigned long)ptr; 
     char hex_digits[] = "0123456789ABCDEF";
     char buffer[20];
-    int i = 0;
+    int i;
+    int count;
 
-    ft_putstr_fd("0x", fd);
+    i =  0;
+    count = 0;
+    count += ft_putstr_fd("0x");
 
-    while (address > 0) {
-        buffer[i++] = hex_digits[address % 16];
-        address /= 16;
+    while (n > 15) 
+    {
+        buffer[i++] = hex_digits[n % 16];
+        n /= 16;
     }
 
-    while (i-- > 0) {
-        ft_putchar_fd(buffer[i], fd);
-    }
-}
-
-int main(void)
-{
-    int n = 47898902;  
-    int fd = 1;  
-    
-    ft_puthex_fd(n, fd);  
-    return 0;
+    while (i-- > 0) 
+    count += ft_putchar(buffer[i]);
+    return (count);
 }

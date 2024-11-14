@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfpor.c                                     :+:      :+:    :+:   */
+/*   ft_printfhex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: patferna <patferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 07:25:12 by patferna          #+#    #+#             */
-/*   Updated: 2024/11/13 07:25:12 by patferna         ###   ########.fr       */
+/*   Created: 2024/11/13 07:10:36 by patferna          #+#    #+#             */
+/*   Updated: 2024/11/13 07:10:36 by patferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,24 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-int    ft_printf(char const *word ,...)
+int	ft_putnbr_hex(unsigned long n)
 {
-	va_list        arg;
-	va_start    (arg,word);
-	int            i;
-	char        *posi = va_arg(arg, char*); 
-	int            len;
+    char hex_digits[] = "0123456789abcdef";
+    char buffer[20];
+    int i;
+    int count;
 
-	len = 0;
-	i    =    0;
-	while (word[i])
-	{
-		if (word[i] == '%' && word[i + 1] == '%' )
-		{
-		 write(1, "%", 1);
-	return (1);
-		}
-		else
-		{
-		write (1, &word[i], 1);
-		len++;
-		}
-		i++;
-	}
-	va_end (arg);
-	return len;
-}
+    i =  0;
+    count = 0;
+    count += ft_putstr_fd("0x");
 
+    while (n > 15) 
+    {
+        buffer[i++] = hex_digits[n % 16];
+        n /= 16;
+    }
 
-
-int    main(void)
-{
-	char c[] = "hola";
-
-	ft_printf("pato %%",c);
+    while (i-- > 0) 
+    count += ft_putchar(buffer[i]);
+    return (count);
 }

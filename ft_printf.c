@@ -15,55 +15,52 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 
-int	search(char word, va_list arg)
+int	search(char const *word, va_list arg)
 {
-	int	len;
-	int	i;
+	int		count;
 
-	len = 0;
-	i = 0;
+	count = 0;
 
-	if (word == 'c')
-		return (ft_putchar(va_arg(arg, int)));
-	else if (word == 's')
-		return (ft_printfs(va_arg(arg, char *)));
-	else if (word == 'p')
-		return (ft_printf_ei(va_arg(arg, uintptr_t)));
-	else if (word == 'd' || word == 'i')
-		return (ft_printfu(va_arg(arg, int)));
-	else if (word == 'u')
-		return (ft_print_unsigned(va_arg(arg, unsigned int)));
-	else if (word == 'x')
-		return (ft_printfx(va_arg(arg, unsigned int), "0123456789abcdef"));
-	else if (word == 'X')
-		return (ft_printfhexm(va_arg(arg, unsigned int), "0123456789ABCDEF"));
-	else if (word == '%')
-		return (ft_putchar('%'));
-	return (1);
+if (*word == 'c')
+		count += ft_putchar(va_arg(arg, int));
+	else if (*word == 's')
+		count += ft_putstr(va_arg(arg, char *));
+	else if (*word == 'p')
+		count += ft_putptr(va_arg(arg, void *));
+	else if (*word == 'd' || *word == 'i')
+		count += ft_putnbr(va_arg(arg, int));
+	else if (*word == 'u')
+		count += ft_putnbr_u(va_arg(arg, unsigned int));
+	else if (*word == 'x')
+		count += ft_putnbr_hex(va_arg(arg, unsigned int));
+	else if (*word == 'X')
+		count += ft_putnbr_hex(va_arg(arg, unsigned int));
+	else if (*word == '%')
+		count += ft_putchar('%');
+	return (count);
 }
-
-int	ft_printf(char const *word ,...)
+int	ft_printf(char const *word , ...)
 {
 	va_list		arg;
-	int			i;
-	int			len;
+	size_t			i;
+	int			count;
 
 	va_start(arg, word);
-	len = 0;
+	count = 0;
 	i = 0;
 	while (word[i])
 	{
 		if (word[i] == '%')
 		{
-			len += converter(word[i + 1], arg);
+			count += search(&word[i], arg);
 			i++;
 		}
 		else
-			len += ft_putchar(word[i]);
+			count += ft_putchar(word[i]);
 		i++;
 	}
-	va_end(args);
-	return (length);
+	va_end(arg);
+	return (count);
 }
 
 
