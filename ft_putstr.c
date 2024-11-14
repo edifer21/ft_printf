@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 
-int   ft_putstr(char const *str)
+int   ft_putstr(char *str)
 {
   int count;
   size_t i;

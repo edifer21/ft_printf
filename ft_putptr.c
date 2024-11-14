@@ -14,16 +14,17 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 
-void	ft_putptr(void *ptr)
+int	ft_putptr(void *ptr)
 {
-	unsigned long address = (unsigned long)ptr; 
+	unsigned long address; 
 	char hex_digits[] = "0123456789abcdef";
 	char buffer[20];
 	int i = 0;
 	int	count;
 
+	count = 0;
 	address = (unsigned long)ptr; 
-	count += ft_putstr_fd("0x");
+	count += ft_putstr("0x");
 
 	while (address > 0) {
 		buffer[i++] = hex_digits[address % 16];

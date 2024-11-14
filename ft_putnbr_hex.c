@@ -26,7 +26,7 @@ int	ft_putnbr_hex(unsigned long n)
 
     i =  0;
     count = 0;
-    count += ft_putstr_fd("0x");
+    count += ft_putstr("0x");
 
     while (n > 15) 
     {
