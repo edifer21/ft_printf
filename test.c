@@ -14,7 +14,7 @@ int	main(void)
 {
 	int p_result;
 	int u_result;
-
+/*
 	//0 - Prueba normal
 	printf(YEL "---0: Prueba normal---\n" RESET);
 	p_result = printf("hola\n");

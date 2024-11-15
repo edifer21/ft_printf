@@ -39,8 +39,9 @@ int	ft_putnbr_hex(unsigned long n)
         n /= 16;
     }
 
-    while (i-- > 0) 
-    count += ft_putchar(buffer[i]);
+    while (i-- > 0)
+
+        count += ft_putchar(buffer[i]);
 
     return (count);
 }
