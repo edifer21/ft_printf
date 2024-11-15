@@ -28,5 +28,4 @@ int		ft_putnbr_u(unsigned int n);
 int		ft_putnbr_hex(unsigned long n);
 int		ft_putnbr_hex_m(unsigned long n);
 
-
 #endif
