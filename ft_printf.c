@@ -21,7 +21,7 @@ int	search(char word, va_list arg)
 
 	count = 0;
 
-if (word == 'c')
+    if  (word == 'c')
 		count += ft_putchar(va_arg(arg, int));
 	else if (word == 's')
 		count += ft_putstr(va_arg(arg, char *));

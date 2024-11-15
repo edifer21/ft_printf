@@ -11,8 +11,8 @@ int   ft_putstr(char *str)
   count = 0;
   i = 0;
 
-  if (str == NULL)
-		return (ft_putstr("(null)"));
+if (str == NULL)
+		return (write(1, "(null)", 6));
   while (str[i])
   {
      count += ft_putchar(str[i]);

@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include "ft_printf.h"
 
-int	ft_putnbr_hex(unsigned long n)
+int	ft_putnbr_hex_m(unsigned long n)
 {
     char hex_digits[] = "0123456789ABCDEF";
     char buffer[20];
@@ -27,14 +27,21 @@ int	ft_putnbr_hex(unsigned long n)
     i =  0;
     count = 0;
     count += ft_putstr("0x");
+    if (n == 0)
+    {
+        count += ft_putchar('0');
+        return (count);
+    }
 
-    while (n > 15) 
+    while (n > 0) 
     {
         buffer[i++] = hex_digits[n % 16];
         n /= 16;
     }
 
-    while (i-- > 0) 
-    count += ft_putchar(buffer[i]);
-    return (count);
+    while (i-- > 0)
+
+        count += ft_putchar(buffer[i]);
+ return (count);
 }
+

@@ -20,7 +20,7 @@
 #include "ft_printf.h"
 
 int		ft_printf(char const *word, ...);
-int		ft_putchar(int c);
+int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putptr(void *ptr);
 int	    ft_putnbr(int n);

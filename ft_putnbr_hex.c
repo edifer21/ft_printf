@@ -26,9 +26,14 @@ int	ft_putnbr_hex(unsigned long n)
 
     i =  0;
     count = 0;
-    count += ft_putstr("0x");
 
-    while (n > 15) 
+    if (n == 0)
+    {
+        count += ft_putchar('0');
+        return (count);
+    }
+   
+    while (n > 0) 
     {
         buffer[i++] = hex_digits[n % 16];
         n /= 16;
@@ -36,5 +41,6 @@ int	ft_putnbr_hex(unsigned long n)
 
     while (i-- > 0) 
     count += ft_putchar(buffer[i]);
+
     return (count);
 }
