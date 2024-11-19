@@ -20,8 +20,7 @@ int	search(char word, va_list arg)
 	int		count;
 
 	count = 0;
-
-    if  (word == 'c')
+	if (word == 'c')
 		count += ft_putchar(va_arg(arg, int));
 	else if (word == 's')
 		count += ft_putstr(va_arg(arg, char *));
@@ -34,7 +33,7 @@ int	search(char word, va_list arg)
 	else if (word == 'x')
 		count += ft_putnbr_hex(va_arg(arg, unsigned int));
 	else if (word == 'X')
-		count += ft_putnbr_hex(va_arg(arg, unsigned int));
+		count += ft_putnbr_hex_m(va_arg(arg, unsigned int));
 	else if (word == '%')
 		count += ft_putchar('%');
 	return (count);
@@ -60,4 +59,3 @@ int	ft_printf(char const *word, ...)
 	va_end(arg);
 	return (count);
 }
-

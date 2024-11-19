@@ -10,26 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "ft_printf.h"
 
-int    ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-    int count;
+	int	count;
 
-    count = 0;
-    if (n == -2147483648)
-        return (ft_putstr("-2147483648"));
-    if (n < 0)
-    {
-        count += ft_putchar('-');
-        n = -n;
-    }
-    if (n > 9)
-       count += ft_putnbr(n / 10);
-    count += ft_putchar((n % 10 + 48));
-    return (count);
+	count = 0;
+	if (n == -2147483648)
+		return (ft_putstr("-2147483648"));
+	if (n < 0)
+	{
+		count += ft_putchar('-');
+		n = -n;
+	}
+	if (n > 9)
+		count += ft_putnbr(n / 10);
+	count += ft_putchar((n % 10 + 48));
+	return (count);
 }

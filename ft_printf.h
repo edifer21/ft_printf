@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdint.h>
-#include "ft_printf.h"
+# include "ft_printf.h"
 
 int		ft_printf(char const *word, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
 int		ft_putptr(void *ptr);
-int	    ft_putnbr(int n);
+int		ft_putnbr(int n);
 int		ft_putnbr_u(unsigned int n);
 int		ft_putnbr_hex(unsigned long n);
 int		ft_putnbr_hex_m(unsigned long n);

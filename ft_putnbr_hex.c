@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfhex.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: patferna <patferna@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: patferna <patferna@student.42madrid.com>   #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 07:10:36 by patferna          #+#    #+#             */
-/*   Updated: 2024/11/13 07:10:36 by patferna         ###   ########.fr       */
+/*   Created: 2024-11-19 12:42:26 by patferna          #+#    #+#             */
+/*   Updated: 2024-11-19 12:42:26 by patferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "ft_printf.h"
 
 int	ft_putnbr_hex(unsigned long n)
 {
-	char	hex_digits[] = "0123456789abcdef";
+	char	*hex_digits;
 	char	buffer[20];
 	int		i;
 	int		count;
 
+	hex_digits = "0123456789abcdef";
 	i = 0;
 	count = 0;
 	if (n == 0)
