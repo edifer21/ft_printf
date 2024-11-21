@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <string.h>
-#include <stdlib.h>
 #include "ft_printf.h"
 
 int	search(char word, va_list arg)
